@@ -4,6 +4,7 @@ import { LoginPage } from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Products from "../components/Products";
+import ProductForm from "../components/ProductForm";
 import Sales from "../components/Sales";
 
 const ProtectedRoute = ({ children }: { children: ReactElement }) => {
@@ -26,6 +27,8 @@ export const AppRouter = () => {
 					</ProtectedRoute>
 				}>
 				<Route path='products' element={<Products />} />
+				<Route path='products/new' element={<ProductForm />} />
+				<Route path='products/edit/:id' element={<ProductForm />} />
 				<Route path='sales' element={<Sales />} />
 				<Route index element={<Navigate to='products' />} />
 			</Route>

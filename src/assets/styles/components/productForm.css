@@ -1,0 +1,68 @@
+.product-form-container {
+	margin: 0 auto;
+	width: 50vw;
+	padding: 2rem;
+	background-color: #ffffff;
+	border-radius: 1rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	font-family: sans-serif;
+}
+
+.product-header h2 {
+	margin-bottom: 1.5rem;
+	color: #333;
+}
+
+.input-group {
+	margin-bottom: 1.2rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.input-group input,
+.input-group select {
+	padding: 0.75rem 1rem;
+	border: 1px solid #ccc;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	transition: border-color 0.2s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+	border-color: #007bff;
+	outline: none;
+}
+
+.input-group label {
+	margin-bottom: 0.5rem;
+	color: #444;
+	font-weight: 500;
+}
+
+.btn-submit {
+	width: 100%;
+	padding: 0.8rem;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	font-size: 1rem;
+	transition: background-color 0.2s ease;
+}
+.input-group select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-color: #fff;
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg viewBox='0 0 20 20' fill='gray' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 7l3-3 3 3M7 13l3 3 3-3'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 1rem center;
+	background-size: 1rem;
+	padding-right: 2.5rem;
+}
+
+.btn-submit:hover {
+	background-color: #0056b3;
+}
