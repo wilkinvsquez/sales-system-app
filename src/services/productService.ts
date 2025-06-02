@@ -18,5 +18,14 @@ export default {
             console.error('Error searching products:', error);
             throw error;
         }
+    },
+    createProduct: async (productData: any) => {
+        try {
+            const response = await api.post('/products', productData);
+            return await response.data;
+        } catch (error) {
+            console.error('Error creating product:', error);
+            throw error;
+        }
     }
 }
