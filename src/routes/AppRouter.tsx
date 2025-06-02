@@ -5,7 +5,8 @@ import RegisterPage from "../pages/RegisterPage";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Products from "../components/Products/Products";
 import ProductForm from "../components/Products/ProductForm";
-import Sales from "../components/Sales";
+import Sales from "../components/Sales/Sales";
+import SalesForm from "../components/Sales/SalesForm";
 import Discounts from "../components/Discounts/Discounts";
 import DiscountForm from "../components/Discounts/DiscountForm";
 
@@ -31,10 +32,14 @@ export const AppRouter = () => {
 				<Route path='products' element={<Products />} />
 				<Route path='products/new' element={<ProductForm />} />
 				<Route path='products/edit/:id' element={<ProductForm />} />
+
 				<Route path='sales' element={<Sales />} />
+				<Route path='sales/new' element={<SalesForm />} />
+
 				<Route path='discounts' element={<Discounts />} />
 				<Route path='discounts/new' element={<DiscountForm />} />
 				<Route path='discounts/edit/:id' element={<DiscountForm />} />
+
 				<Route index element={<Navigate to='products' />} />
 			</Route>
 			<Route path='*' element={<Navigate to='/' />} />
