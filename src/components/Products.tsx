@@ -1,7 +1,9 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import productService from "../services/productService"; // Adjust the path as necessary
 import "../assets/styles/components/products.css"; // Adjust the path as necessary
 import { useNavigate } from "react-router-dom";
+import editIcon from "../assets/icons/icon-edit.svg";
+import deleteIcon from "../assets/icons/icon-delete.svg";
 
 const Products = () => {
 	const [searchValue, setSearchValue] = useState("");
@@ -12,7 +14,7 @@ const Products = () => {
 		const loadProducts = async () => {
 			try {
 				const fetchProducts = await productService.getProducts();
-				setProducts(fetchProducts);
+				setProducts(fetchProducts.data);
 			} catch (error) {
 				console.error("Failed to load products", error);
 			}
@@ -24,10 +26,22 @@ const Products = () => {
 	const handleNewProduct = () => {
 		navigate("/products/new");
 	};
+
+	const handleDeleteProduct = async (productId: string) => {
+		if (window.confirm("Are you sure you want to delete this product?")) {
+			try {
+				await productService.deleteProduct(productId);
+				setProducts(products.filter((p: any) => p.id !== productId));
+			} catch (error) {
+				console.error("Failed to delete product", error);
+			}
+		}
+	};
+
 	const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const searchProducts = await productService.searchProducts(searchValue);
-		setProducts(searchProducts);
+		setProducts(searchProducts.data);
 	};
 	return (
 		<div className='products-container'>
@@ -62,7 +76,8 @@ const Products = () => {
 							<th>Código</th>
 							<th>Nombre</th>
 							<th>Precio</th>
-							{/*<th>Actions</th>*/}
+							<th>Unit</th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -71,6 +86,23 @@ const Products = () => {
 								<td>{product.code}</td>
 								<td>{product.name}</td>
 								<td>${product.price}</td>
+								<td>{product.unit}</td>
+								<td className='actions-buttons'>
+									<button
+										onClick={() =>
+											navigate(
+												`/products/edit/${product.id}`,
+											)
+										}>
+										<img src={editIcon} alt='edit' />
+									</button>
+									<button
+										onClick={() =>
+											handleDeleteProduct(product.id)
+										}>
+										<img src={deleteIcon} alt='delete' />
+									</button>
+								</td>
 							</tr>
 						))}
 					</tbody>

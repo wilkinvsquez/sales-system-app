@@ -119,6 +119,41 @@
 	min-width: 600px; /* Opcional, evita que se rompa en pantallas chicas */
 }
 
+.actions-buttons {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+/* Estilo base para los botones de acción */
+.actions-buttons button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0.3rem;
+	border-radius: 8px;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.actions-buttons button:nth-child(2):hover {
+	background-color: #fee2e2; /* rojo claro */
+}
+
+.actions-buttons button:hover {
+	background-color: #e2e8f0;
+	transform: scale(1.05);
+}
+
+/* Íconos dentro de los botones */
+.actions-buttons img {
+	width: 20px;
+	height: 20px;
+	pointer-events: none;
+}
+
 /* Animación de entrada */
 @keyframes fadeSlideIn {
 	from {

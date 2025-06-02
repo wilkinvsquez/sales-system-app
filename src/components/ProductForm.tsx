@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "../assets/styles/components/productForm.css";
 
 import productService from "../services/productService";
-import { useNavigate } from "react-router-dom";
 
 const ProductForm = () => {
 	const [code, setCode] = useState("");
@@ -12,6 +12,32 @@ const ProductForm = () => {
 	const [unit, setUnit] = useState("unit");
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
+	const { id } = useParams();
+
+	useEffect(() => {
+		const loadProduct = async () => {
+			if (id) {
+				try {
+					const product = await productService.getProductById(id);
+					if (!product) {
+						setError("Producto no encontrado.");
+						return;
+					}
+					const { data } = product;
+					setCode(data[0].code);
+					setName(data[0].name);
+					setPrice(data[0].price.toString());
+					setDescription(data[0].description);
+					setUnit(data[0].unit);
+				} catch (err) {
+					console.error("Error al cargar el producto:", err);
+					setError("No se pudo cargar el producto.");
+				}
+			}
+		};
+
+		loadProduct();
+	}, [id]);
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
@@ -27,10 +53,14 @@ const ProductForm = () => {
 				description,
 				unit,
 			};
+			let response;
+			if (id)
+				response = await productService.updateProduct(id, productData);
+			else response = await productService.createProduct(productData);
 
-			const response = await productService.createProduct(productData);
 			if (response.success) {
-				alert("Producto guardado exitosamente.");
+				if (id) alert("Producto actualizado exitosamente.");
+				else alert("Producto guardado exitosamente.");
 				navigate("/products");
 				cleanForm();
 			}
@@ -55,7 +85,11 @@ const ProductForm = () => {
 				onSubmit={handleSubmit}>
 				<div>
 					<div className='product-header'>
-						<h2>Añade un nuevo producto:</h2>
+						{!id ? (
+							<h2>Nuevo Producto</h2>
+						) : (
+							<h2>Editar Producto</h2>
+						)}
 					</div>
 					{error && <p style={{ color: "red" }}>{error}</p>}
 					<div className='input-group'>

@@ -28,6 +28,7 @@ export const AppRouter = () => {
 				}>
 				<Route path='products' element={<Products />} />
 				<Route path='products/new' element={<ProductForm />} />
+				<Route path='products/edit/:id' element={<ProductForm />} />
 				<Route path='sales' element={<Sales />} />
 				<Route index element={<Navigate to='products' />} />
 			</Route>
