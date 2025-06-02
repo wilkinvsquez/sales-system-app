@@ -15,9 +15,13 @@ Sistema de gestión de productos y descuentos para ventas, desarrollado con **Re
 
 ```
 src/
+├── api/ # Interceptor con axios
+├── auth/ # Authenticacion
 ├── assets/ # Estilos, imágenes e íconos
 ├── components/ # Componentes reutilizables
+├── layouts/ 
 ├── pages/ # Vistas principales (Productos, Descuentos, etc.)
+├── routes/ # Rutas
 ├── services/ # Lógica de comunicación con APIs
 └── main.tsx # Punto de entrada de la app
 └── App.tsx # Componente principal de la aplicación
@@ -28,9 +32,6 @@ src/
 | Comando           | Descripción                              |
 | ----------------- | ---------------------------------------- |
 | `npm run dev`     | Ejecuta la aplicación en modo desarrollo |
-| `npm run build`   | Genera el build de producción            |
-| `npm run preview` | Previsualiza el build                    |
-| `npm run lint`    | Ejecuta ESLint para análisis estático    |
 
 ## 🧪 Requisitos previos
 
