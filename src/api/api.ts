@@ -32,6 +32,11 @@ api.interceptors.response.use((response) => response, (error) => {
         sessionStorage.removeItem('token');
         window.location.href = '/login';
     }
+    if (error.response && error.response.data) {
+        if (error.response.data.message) {
+            alert(` ${error.response.data.message}`);
+        }
+    }
     return Promise.reject(error);
 })
 

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import productService from "../services/productService"; // Adjust the path as necessary
-import "../assets/styles/components/products.css"; // Adjust the path as necessary
+import productService from "../../services/productService"; // Adjust the path as necessary
+import "../../assets/styles/components/products.css"; // Adjust the path as necessary
 import { useNavigate } from "react-router-dom";
-import editIcon from "../assets/icons/icon-edit.svg";
-import deleteIcon from "../assets/icons/icon-delete.svg";
+import editIcon from "../../assets/icons/icon-edit.svg";
+import deleteIcon from "../../assets/icons/icon-delete.svg";
 
 const Products = () => {
 	const [searchValue, setSearchValue] = useState("");
