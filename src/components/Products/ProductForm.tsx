@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "../assets/styles/components/productForm.css";
+import "../../assets/styles/components/productForm.css";
 
-import productService from "../services/productService";
+import productService from "../../services/productService";
 
 const ProductForm = () => {
 	const [code, setCode] = useState("");
