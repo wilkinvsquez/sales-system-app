@@ -4,8 +4,9 @@ import "../assets/styles/components/sidebar.css";
 const SideBar = () => {
 	return (
 		<nav className='sidebar'>
-			<NavLink to='' className='link'>
-				Dahsboard
+			<h2>Sales System</h2>
+			<NavLink to='discounts' className='link'>
+				Discounts
 			</NavLink>
 			<NavLink to='sales' className='link'>
 				Ventas
