@@ -1,54 +1,65 @@
-# React + TypeScript + Vite
+# 📦 Sales System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de gestión de productos y descuentos para ventas, desarrollado con **React**, **TypeScript** y **Vite**.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   ⚛️ React 19
+-   📘 TypeScript
+-   ⚡ Vite
+-   🌐 React Router DOM
+-   📡 Axios
+-   📅 Date-fns
 
-## Expanding the ESLint configuration
+## 📁 Estructura del proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+├── assets/ # Estilos, imágenes e íconos
+├── components/ # Componentes reutilizables
+├── pages/ # Vistas principales (Productos, Descuentos, etc.)
+├── services/ # Lógica de comunicación con APIs
+└── main.tsx # Punto de entrada de la app
+└── App.tsx # Componente principal de la aplicación
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Scripts disponibles
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Comando           | Descripción                              |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Ejecuta la aplicación en modo desarrollo |
+| `npm run build`   | Genera el build de producción            |
+| `npm run preview` | Previsualiza el build                    |
+| `npm run lint`    | Ejecuta ESLint para análisis estático    |
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## 🧪 Requisitos previos
+
+-   Node.js `>=18.x`
+-   npm `>=9.x`
+
+## 🚧 Instalación y uso
+
+```bash
+# 1. Clona el repositorio
+git clone https://github.com/tu-usuario/sales-system.git
+cd sales-system
+
+# 2. Instala dependencias
+npm install
+
+# 3. Ejecuta en modo desarrollo
+npm run dev
 ```
+
+## 📋 Funcionalidades actuales
+
+-   Gestión de usuarios (registro, inicio de sesión)
+-   Gestión de productos (crear, listar, editar, eliminar)
+-   Gestión de descuentos
+-   Búsqueda de productos y descuentos
+-   Navegación con React Router
+-   Integración con APIs para persistencia de datos
+
+## 📝 Contribuciones
+
+Wilkin Vasquez
